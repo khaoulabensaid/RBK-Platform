@@ -1,9 +1,10 @@
 import React from "react";
-import "./DeleteButton.css";
+import "./CohortsButton.css";
 import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-class DeleteButton extends React.Component {
+import OneCohortButton from "../OneCohortButton/OneCohortButton.jsx";
+class CohortsButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,12 +13,11 @@ class DeleteButton extends React.Component {
   }
   showChildren() {
     if (!this.state.children) {
-      $("#deleteAccountItem").show(500);
-      $("#deleteCohortItem").show(500);
+      $("#cohort1").show(500);
+
       this.setState({ children: true });
     } else {
-      $("#deleteAccountItem").hide(500);
-      $("#deleteCohortItem").hide(500);
+      $("#cohort1").hide(500);
       this.setState({ children: false });
     }
   }
@@ -28,21 +28,14 @@ class DeleteButton extends React.Component {
           <li>
             <Button
               variant="outline-light"
-              id="deleteButton"
+              id="cohortsButton"
               onClick={this.showChildren.bind(this)}
             >
-              Delete
+              Cohorts
             </Button>
             <ul>
-              <li id="deleteAccountItem">
-                <Button variant="light" id="deleteAccount">
-                  Delete Account
-                </Button>
-              </li>
-              <li id="deleteCohortItem">
-                <Button variant="light" id="DeleteCohort">
-                  Delete Cohort
-                </Button>
+              <li>
+                <OneCohortButton id={1} />
               </li>
             </ul>
           </li>
@@ -51,4 +44,4 @@ class DeleteButton extends React.Component {
     );
   }
 }
-export default DeleteButton;
+export default CohortsButton;
