@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-mongoose.connect("mongodb://localhost:27017/RBK", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/RBK", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 let usersSchema = new Schema({
-  fullName: String,
+  fullName: { type: String, unique: true },
   email: String,
   password: String,
   role: String,
@@ -20,3 +23,9 @@ let chatRoomSchema = new Schema({
 });
 
 exports.CHATROOM = mongoose.model("CHATROOM", chatRoomSchema);
+
+let cohortSchema = new Schema({
+  cohortNumber: { type: Number, unique: true },
+});
+
+exports.COHORT = mongoose.model("COHORTS", cohortSchema);
