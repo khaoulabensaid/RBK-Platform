@@ -1,0 +1,41 @@
+#container {
+  width: 15%;
+  height: 100%;
+  float: left;
+  background-color: #b41e85;
+  margin: auto;
+  position: fixed;
+  left: -350px;
+  border-radius: 20px;
+  top: 0%;
+}
+#arrowbox {
+  border-radius: 90px;
+  border: 2px solid black;
+  width: 30px;
+  height: 30px;
+  float: right;
+}
+
+#arrow {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  top: 0.5%;
+  right: 4px;
+  position: absolute;
+}
+#rbkLogo {
+  width: 120px;
+  height: 80px;
+  margin: auto;
+  position: absolute;
+  top: 3%;
+  left: 30%;
+}
+#buttonsBox {
+  margin: auto;
+  top: 15%;
+  left: 7%;
+  position: absolute;
+}
