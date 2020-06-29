@@ -1,0 +1,15 @@
+#cohortsButton {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 200px;
+}
+#cohort1Item,
+#cohort2Item,
+#cohort3Item,
+#cohort4Item {
+  margin-bottom: 10px;
+  display: none;
+}
+ul {
+  list-style: none;
+}
