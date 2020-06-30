@@ -1,49 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-// import './Calendar.css'
-// class Calendar extends React.Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//         value: "",
-//       todos: [],
-//       };
-//     }
-
-
-//     render() {
-//         return (
-//             <div className="container" style={{margin:'100px auto',
-//                 width:'809px'}}>
-//   <div className="calendar light">
-//     <div className="calendar_header" style ={{borderBottom: '2px solid rgba(0, 0, 0, 0.08)'}}>
-//       <h1 className = "header_title">Calendar</h1>
-//       <p className="header_copy" style ={{color:'$light_grey',
-//   fontSize:'20px'}}> Today's Plan</p>
-//     </div>
-//     <div className="calendar_plan" style={{margin:'20px 0 40px'}}>
-//       <div className="cl_plan" style={{  width:'100%',
-//   height: '140px',
-//   backgroundImage: 'linear-gradient(-222deg, #FF8494, #ffa9b7)',
-//   boxShadow: '0px 0px 52px -18px rgba(0, 0, 0, 0.75)',
-//   padding:'30px',
-//   color:'#fff'}}>
-//         <div className="cl_title">Today</div>
-//         <div className="cl_copy">22nd  April  2018</div>
-//         <div className="cl_add">
-//           <i className="fas fa-plus"></i>
-//         </div>
-//       </div>
-//     </div>
-
-// /</div>
-// </div>
-  
-//         )
-//     }
-// }
-
-// export default Calendar
+import $ from "jquery";
 
 
 class Calendar extends React.Component {
@@ -104,6 +61,12 @@ class Calendar extends React.Component {
     }
   
     clearList() {
+        this.state.todos.map(todo => {
+            var todoID = todo['_id']
+            axios.delete(`${todoID}`).then(res => {
+                console.log('deleted all!')
+            })
+        })
       this.setState({
         todos: [],
       });
@@ -113,8 +76,14 @@ class Calendar extends React.Component {
         console.log(res.data);
       });
     }
+    
   
     render() {
+        if (this.state.todos.length === 0) {
+            $('#todosID').hide()
+        } else  {
+            $('#todosID').show()
+        }
         console.log(this.state)
       return (
         <div style={{ textAlign: "center" }}>
@@ -148,6 +117,7 @@ class Calendar extends React.Component {
               borderRadius: "8px",
             }}
             className="rounded-sm"
+            id='todosID'
           >
             {this.state.todos.map((todo, i) => {
               return (
