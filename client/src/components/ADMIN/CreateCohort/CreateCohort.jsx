@@ -17,15 +17,15 @@ class CreateCohort extends React.Component {
       data.json();
     });
   }
-  checkforCohort(newCohortNumber) {
-    const { data } = this.state;
-    for (var i = 0; i < data.length; i++) {
-      console.log(data[i].cohortNumber, newCohortNumber);
-      if (data[i].cohortNumber == newCohortNumber) {
-        alert("you need to enter a different cohort number!!");
-      }
-    }
-  }
+  // checkforCohort(newCohortNumber) {
+  //   const { data } = this.state;
+  //   for (var i = 0; i < data.length; i++) {
+  //     console.log(data[i].cohortNumber, newCohortNumber);
+  //     if (data[i].cohortNumber == newCohortNumber) {
+  //       alert("you need to enter a different cohort number!!");
+  //     }
+  //   }
+  // }
   componentDidMount() {
     fetch("http://localhost:3000/CohortData")
       .then((res) => res.json())
@@ -35,8 +35,14 @@ class CreateCohort extends React.Component {
   }
   submitNewCohortNumber() {
     const { content } = this.state;
+    const { data } = this.state;
     var number = document.getElementById("CreateCohort").value;
-    this.checkforCohort(number);
+    for (var i = 0; i < data.length; i++) {
+      // console.log(data[i].cohortNumber, newCohortNumber);
+      if (data[i].cohortNumber == number) {
+        alert("you need to enter a different cohort number!!");
+      }
+    }
     // console.log(!isNaN(Number(data)));
     if (number === "" || !isNaN(Number(number)) !== true) {
       alert("you  need to  insert a number !!");
