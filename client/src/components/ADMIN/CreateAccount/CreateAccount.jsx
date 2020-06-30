@@ -23,13 +23,20 @@ class CreateAccount extends React.Component {
 
   submitNewUser() {
     const { content } = this.state;
+    const { UserData } = this.state;
     // console.log(content);
     var data1 = document.getElementById("input1").value;
     var data2 = document.getElementById("input2").value;
     var data3 = document.getElementById("input3").value;
     var data4 = document.getElementById("select1").value;
     var data5 = document.getElementById("select2").value;
-    this.checkForUserFullName();
+    for (var i = 0; i < UserData.length; i++) {
+      console.log(UserData[i].fullName.toLowerCase(), data1.toLowerCase());
+      if (UserData[i].fullName.toLowerCase() === data1.toLowerCase()) {
+        alert("insert a new fullName pls!!");
+        return;
+      }
+    }
     if (
       data1 === "" ||
       data2 === "" ||
@@ -38,6 +45,7 @@ class CreateAccount extends React.Component {
       data5 === ""
     ) {
       alert("you need to fill the whole form!");
+      return;
     } else {
       content.push({
         fullName: data1,
@@ -54,17 +62,18 @@ class CreateAccount extends React.Component {
       document.getElementById("select2").value = "";
     }
   }
-  checkForUserFullName() {
-    const { UserData } = this.state;
-    console.log(UserData);
-    var input1 = document.getElementById("input1").value;
-    for (var i = 0; i < UserData.length; i++) {
-      console.log(UserData[i].fullName.toLowerCase(), input1.toLowerCase());
-      if (UserData[i].fullName.toLowerCase() === input1.toLowerCase()) {
-        alert("insert a new fullName pls!!");
-      }
-    }
-  }
+  // checkForUserFullName() {
+  //   const { UserData } = this.state;
+  //   // console.log(UserData);
+  //   var input1 = document.getElementById("input1").value;
+  //   for (var i = 0; i < UserData.length; i++) {
+  //     console.log(UserData[i].fullName.toLowerCase(), input1.toLowerCase());
+  //     if (UserData[i].fullName.toLowerCase() === input1.toLowerCase()) {
+  //       alert("insert a new fullName pls!!");
+  //       break;
+  //     }
+  //   }
+  // }
   addDataToDataBase(content) {
     fetch("http://localhost:3000/UserCreation", {
       method: "post",
