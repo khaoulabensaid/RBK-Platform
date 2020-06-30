@@ -15,7 +15,7 @@ var server = app.listen(PORT, () => {
 
 /**
  *
- * socket.io for the Chat
+ * socket.io for the Chat //test
  *
  */
 const socketio = require("socket.io").listen();
