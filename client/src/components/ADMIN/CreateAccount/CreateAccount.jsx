@@ -22,11 +22,17 @@ class CreateAccount extends React.Component {
   submitNewUser() {
     const { content } = this.state;
     const { UserData } = this.state;
-    var data1 = document.getElementById("input1").value;
+
+    // console.log(content);
+    var data1 = document.getElementById("input1").value.toLowerCase();
+
+
     var data2 = document.getElementById("input2").value;
-    var data3 = document.getElementById("input3").value;
     var data4 = document.getElementById("select1").value;
     var data5 = document.getElementById("select2").value;
+    var data6 = document.getElementById("select3").value;
+    var data3 = (document.getElementById("input3").value =
+      "Cohrot" + data5 + data4);
     for (var i = 0; i < UserData.length; i++) {
       if (UserData[i].fullName.toLowerCase() === data1.toLowerCase()) {
         alert("insert a new fullName pls!!");
@@ -38,7 +44,8 @@ class CreateAccount extends React.Component {
       data2 === "" ||
       data3 === "" ||
       data4 === "" ||
-      data5 === ""
+      data5 === "" ||
+      data6 === ""
     ) {
       alert("you need to fill the whole form!");
       return;
@@ -49,6 +56,7 @@ class CreateAccount extends React.Component {
         password: data3,
         role: data4,
         cohort: data5,
+        Gender: data6,
       });
       this.addDataToDataBase(content);
       document.getElementById("input1").value = "";
@@ -56,6 +64,7 @@ class CreateAccount extends React.Component {
       document.getElementById("input3").value = "";
       document.getElementById("select1").value = "";
       document.getElementById("select2").value = "";
+      document.getElementById("select3").value = "";
     }
   }
   // checkForUserFullName() {
@@ -120,6 +129,11 @@ class CreateAccount extends React.Component {
             return <option key={index}>{elem.cohortNumber}</option>;
             // console.log(elem);
           })}
+        </select>
+        <select id="select3">
+          Gender
+          <option>Male </option>
+          <option>Female</option>
         </select>
         <button id="submitButton" onClick={this.submitNewUser.bind(this)}>
           Create

@@ -16,6 +16,25 @@ var server = app.listen(PORT, () => {
 });
 app.get("/chat", (req, res) => {});
 app.get("/", (req, res) => {});
+app.post("/DeleteCohort", (req, res) => {
+  // console.log(req.body);
+  const cohort = database.COHORT;
+  const cohortNumber = Number(req.body.input);
+  cohort.deleteOne({ cohortNumber }, (err, data) => {
+    if (err) console.log(err);
+    else console.log(data);
+  });
+});
+app.post("/DeleteUser", (req, res) => {
+  // console.log(req.body);
+  const User = database.RBK;
+  const fullName = req.body.input;
+  // console.log(fullName);
+  User.deleteOne({ fullName }, (err, data) => {
+    if (err) console.log(err);
+    else console.log(data);
+  });
+});
 app.post("/UserCreation", (req, res) => {
   const User = database.RBK;
   User.create(req.body);

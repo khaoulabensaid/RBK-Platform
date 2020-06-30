@@ -10,6 +10,7 @@ let usersSchema = new Schema({
   password: String,
   role: String,
   cohort: Number,
+  Gender: String,
 });
 
 exports.RBK = mongoose.model("RBK", usersSchema);
