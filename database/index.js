@@ -29,3 +29,11 @@ let cohortSchema = new Schema({
 });
 
 exports.COHORT = mongoose.model("COHORTS", cohortSchema);
+
+let CalendarSchema = new Schema({
+  value: String
+})
+
+exports.CALENDAR = mongoose.model("CALENDAR", CalendarSchema)
+
+
