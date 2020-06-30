@@ -8,6 +8,10 @@
   left: -350px;
   border-radius: 20px;
   top: 0%;
+  overflow-y: scroll;
+}
+#container::-webkit-scrollbar {
+  display: none;
 }
 #arrowbox {
   border-radius: 90px;
@@ -15,6 +19,8 @@
   width: 30px;
   height: 30px;
   float: right;
+  left: -1%;
+  position: relative;
 }
 
 #arrow {
@@ -22,8 +28,8 @@
   height: 20px;
   margin: auto;
   top: 0.5%;
-  right: 4px;
-  position: absolute;
+  /* right: 5%; */
+  position: relative;
 }
 #rbkLogo {
   width: 120px;
@@ -36,6 +42,6 @@
 #buttonsBox {
   margin: auto;
   top: 15%;
-  left: 7%;
+  left: -10%;
   position: absolute;
 }

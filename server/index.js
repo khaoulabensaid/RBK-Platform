@@ -1,20 +1,20 @@
 const express = require("express");
 const http = require("http");
-
+const cors = require("cors");
 const app = express();
 const router = express.Router();
 const PORT = process.env.PORT || 3000;
 const database = require("../database/index.js");
 const bodyParser = require("body-parser");
 app.use(express.static(__dirname + "/../client/dist"));
-
-
-app.get("/chat", (req, res) => {});
-
-var server = app.listen(PORT, () => {
-
+app.use(router);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+var server = app.listen(PORT, () => {
+  console.log("App is listening ON: ", PORT);
+});
+app.get("/chat", (req, res) => {});
 app.get("/", (req, res) => {});
 app.post("/UserCreation", (req, res) => {
   const User = database.RBK;
@@ -38,13 +38,12 @@ app.post("/CohortCreation", (req, res) => {
   const cohort = database.COHORT;
   cohort.create(req.body);
 });
-app.listen(PORT, () => {
-  console.log("App is listening ON: ", PORT);
-});
-
+// app.listen(PORT, () => {
+//   console.log("App is listening ON: ", PORT);
+// });
 /**
  *
- * socket.io for the Chat
+ * socket.io for the Chat //test
  *
  */
 const socketio = require("socket.io").listen();
@@ -60,12 +59,6 @@ io.on("connection", function (socket) {
     console.log("User DisConnected");
   });
 });
-
 router.get("/chat", (req, res) => {
   res.send("server is running");
 });
-
-app.use(router);
-/**
- *
- */
