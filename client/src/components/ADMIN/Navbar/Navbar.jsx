@@ -14,47 +14,50 @@ class Navbar extends React.Component {
   }
 
   showNav() {
-    $("#container").animate({ left: "0" }, 1000);
-    $("#arrow").css("transform", "rotate(180deg)");
+    // $("#container").animate({ left: "0" }, 1000);
+    // $("#arrow").css("transform", "rotate(180deg)");
   }
   hideNav() {
-    if (this.state.hover === true) {
-      $("#container").animate({ left: "-350px" }, 1000);
-      $("#arrow").css("transform", "");
-    }
+    // if (this.state.hover === true) {
+    //   $("#container").animate({ left: "-350px" }, 1000);
+    //   $("#arrow").css("transform", "");
+    // }
   }
   fixNav() {
-    if (this.state.hover === true) {
-      this.setState({ hover: false });
-      $("#container").css("left", 0);
-    } else {
-      this.setState({ hover: true });
-    }
+    // if (this.state.hover === true) {
+    //   this.setState({ hover: false });
+    //   $("#container").css("left", 0);
+    // } else {
+    //   this.setState({ hover: true });
+    // }
   }
   render() {
     return (
-      <div
-        id="container"
-        onMouseEnter={this.showNav.bind(this)}
-        onMouseLeave={this.hideNav.bind(this)}
-      >
-        <div id="arrowbox">
+      <div>
+        <div
+          id="container"
+          onMouseEnter={this.showNav.bind(this)}
+          onMouseLeave={this.hideNav.bind(this)}
+        >
+          <div id="arrowbox">
+            <center>
+              <img
+                onClick={this.fixNav.bind(this)}
+                id="arrow"
+                src="./arr.png"
+              ></img>
+            </center>
+          </div>
           <center>
-            <img
-              onClick={this.fixNav.bind(this)}
-              id="arrow"
-              src="./arr.png"
-            ></img>
+            <img src="./rbk2.png" id="rbkLogo" />
           </center>
+          <div id="buttonsBox">
+            <CreateButton />
+            <DeleteButton />
+            <CohortsButton />
+          </div>
         </div>
-        <center>
-          <img src="./rbk2.png" id="rbkLogo" />
-        </center>
-        <div id="buttonsBox">
-          <CreateButton />
-          <DeleteButton />
-          <CohortsButton />
-        </div>
+        <div id="interface"></div>
       </div>
     );
   }
