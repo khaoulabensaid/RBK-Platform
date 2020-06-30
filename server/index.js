@@ -81,6 +81,3 @@ io.on("connection", function (socket) {
 router.get("/chat", (req, res) => {
   res.send("server is running");
 });
-/**
- *
- */

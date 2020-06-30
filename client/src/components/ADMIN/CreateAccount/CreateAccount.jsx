@@ -10,7 +10,6 @@ class CreateAccount extends React.Component {
       UserData: [],
     };
   }
-
   checkforUser(newFullName) {
     const { data } = this.state;
     for (var i = 0; i < data.length; i++) {
@@ -20,12 +19,14 @@ class CreateAccount extends React.Component {
       }
     }
   }
-
   submitNewUser() {
     const { content } = this.state;
     const { UserData } = this.state;
+
     // console.log(content);
     var data1 = document.getElementById("input1").value.toLowerCase();
+
+
     var data2 = document.getElementById("input2").value;
     var data4 = document.getElementById("select1").value;
     var data5 = document.getElementById("select2").value;
@@ -33,7 +34,6 @@ class CreateAccount extends React.Component {
     var data3 = (document.getElementById("input3").value =
       "Cohrot" + data5 + data4);
     for (var i = 0; i < UserData.length; i++) {
-      // console.log(UserData[i].fullName.toLowerCase(), data1.toLowerCase());
       if (UserData[i].fullName.toLowerCase() === data1.toLowerCase()) {
         alert("insert a new fullName pls!!");
         return;
@@ -91,7 +91,6 @@ class CreateAccount extends React.Component {
       // .then(() => console.log("done!!"))
       .catch((err) => console.log(err));
   }
-
   // getCohorts() {
   //   fetch("http://localhost:3000/CohortData")
   //     .then((res) => res.json())
@@ -111,13 +110,6 @@ class CreateAccount extends React.Component {
       // .then(() => console.log(this.state.data))
       .catch((err) => console.log(err));
   }
-  // componentDidMount() {
-  //   fetch("http://localhost:3000/UserData")
-  //     .then((res) => res.json())
-  //     .then((UserData) => this.setState({ UserData }))
-  //     // .then(() => console.log(this.state.data))
-  //     .catch((err) => console.log(err));
-  // }
   render() {
     // console.log(this.state.CohortNumbers);
     return (
