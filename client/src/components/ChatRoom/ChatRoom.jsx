@@ -89,13 +89,7 @@ class Chat extends Component {
             value={this.state.name}
           />
 
-          {/* <input
-          name="msg"
-          onChange={(e) => this.onTextChange(e)}
-          value={this.state.msg}
-          placeholder='Enter a message...'
-        />
-        <Button onClick={this.onMessageSubmit} >Send</Button> */}
+          
           <div
             className="input-group mb-3"
             style={{ width: "55%", margin: "0 auto" }}
