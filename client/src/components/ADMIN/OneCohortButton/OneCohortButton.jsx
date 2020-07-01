@@ -57,7 +57,7 @@ class OneCohortButton extends React.Component {
   }
   showProfile(e) {
     const fullName = e.target.innerText;
-    console.log(fullName);
+    ReactDOM.unmountComponentAtNode(document.getElementById("interface"));
     ReactDOM.render(
       <UserProfile fullName={fullName} profiles={this.props.data} />,
       document.getElementById("interface")
@@ -99,6 +99,7 @@ class OneCohortButton extends React.Component {
                           <Button
                             onClick={this.showProfile.bind(this)}
                             variant="outline-light"
+                            block
                           >
                             {element.fullName}
                           </Button>
@@ -128,6 +129,7 @@ class OneCohortButton extends React.Component {
                           <Button
                             onClick={this.showProfile.bind(this)}
                             variant="outline-light"
+                            block
                           >
                             {element.fullName}
                           </Button>

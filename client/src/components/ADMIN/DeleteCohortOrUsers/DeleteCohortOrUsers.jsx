@@ -9,10 +9,10 @@ class DeleteCohortOrUsers extends React.Component {
       UserData: [],
     };
   }
-  componentDidMount() {
+  componentDidUpdate() {
     document.getElementById("Users").style.display = "none";
     document.getElementById("cohorts").style.display = "none";
-    // console.log(this.state.UserData);
+    this.chooseCohortOrUser();
   }
   componentWillMount() {
     fetch("http://localhost:3000/CohortData")
@@ -25,8 +25,8 @@ class DeleteCohortOrUsers extends React.Component {
       .catch((err) => console.log(err));
   }
   chooseCohortOrUser() {
-    const input = document.getElementById("select").value;
-    if (input === "Cohort") {
+    // const input = document.getElementById("select").value;
+    if (this.props.delete === "Cohort") {
       document.getElementById("ShowAndHide").style.display = "none";
       document.getElementById("cohorts").style.display = "block";
     } else {
