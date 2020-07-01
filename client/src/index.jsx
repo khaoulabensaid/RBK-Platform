@@ -4,4 +4,5 @@ import DeleteCohortOrUsers from "./components/ADMIN/DeleteCohortOrUsers/DeleteCo
 import App from "./components/App/App.jsx";
 import ChatRoom from "./components/ChatRoom/ChatRoom.jsx";
 import UserPorfile from "./components/ADMIN/UserProfile/UserProfile.jsx";
-// ReactDOM.render(<App />, document.getElementById("app"));
+import CreateAccount  from "./components/ADMIN/CreateAccount/CreateAccount.jsx"
+ReactDOM.render(<CreateAccount />, document.getElementById("app"));
