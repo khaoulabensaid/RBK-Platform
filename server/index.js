@@ -30,10 +30,8 @@ app.post("/DeleteCohort", (req, res) => {
   });
 });
 app.post("/DeleteUser", (req, res) => {
-  // console.log(req.body);
   const User = database.RBK;
   const fullName = req.body.input;
-  // console.log(fullName);
   User.deleteOne({ fullName }, (err, data) => {
     if (err) console.log(err);
     else console.log(data);
@@ -60,6 +58,24 @@ app.get("/CohortData", (req, res) => {
 app.post("/CohortCreation", (req, res) => {
   const cohort = database.COHORT;
   cohort.create(req.body);
+});
+app.post("/updateUser", (req, res) => {
+  const User = database.RBK;
+  let oldFullName = req.body.fullName;
+  let newData = req.body.obj;
+  console.log(oldFullName, newData);
+  User.updateOne({ fullName: oldFullName }, newData, (err) => {
+    if (!err) {
+      console.log("updated");
+    }
+  });
+});
+app.post("/GetUser", (req, res) => {
+  const User = database.RBK;
+  req.body.fullName = req.body.fullName.toLowerCase();
+  User.find(req.body, (err, docs) => {
+    res.send(docs[0]);
+  });
 });
 // app.listen(PORT, () => {
 //   console.log("App is listening ON: ", PORT);
