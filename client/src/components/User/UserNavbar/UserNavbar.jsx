@@ -2,6 +2,8 @@ import React from "react";
 import "./UserNavbar.css";
 import $ from "jquery";
 import UserProfile from "../UserProfile/UserProfile.jsx";
+import CohortButton from "../CohortButton/CohortButton.jsx";
+import ChatRoomButton from "../ChatRoomButton/ChatRoomButton.jsx";
 class UserNavbar extends React.Component {
   constructor(props) {
     super(props);
@@ -48,11 +50,12 @@ class UserNavbar extends React.Component {
           <center>
             <img src="./rbk2.png" id="rbkLogo" />
           </center>
-          <div id="buttonsBox"></div>
+          <div id="buttonsBox">
+            <CohortButton />
+            <ChatRoomButton />
+          </div>
         </div>
-        <div id="interface">
-          <UserProfile />
-        </div>
+        <div id="interface"></div>
       </div>
     );
   }
