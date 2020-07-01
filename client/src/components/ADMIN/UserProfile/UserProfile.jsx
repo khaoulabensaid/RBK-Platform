@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./UserProfile.css";
+import Calendar from "../Calendar/Calendar.jsx";
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -37,9 +38,7 @@ class UserProfile extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col className="info" sm="12">
-              INFORMATIONS
-            </Col>
+            <Col className="info" sm="12"></Col>
           </Row>
         </Container>
       </div>
