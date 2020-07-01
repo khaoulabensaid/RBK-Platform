@@ -1,6 +1,10 @@
 const express = require("express");
 const http = require("http");
-const cors = require("cors");
+
+const cors = require('cors')
+
+
+
 const app = express();
 const router = express.Router();
 const PORT = process.env.PORT || 3000;
@@ -76,6 +80,38 @@ app.post("/GetUser", (req, res) => {
 // app.listen(PORT, () => {
 //   console.log("App is listening ON: ", PORT);
 // });
+
+/**
+ * 
+ * START OF CALENDAR
+ */
+
+app.post("/calendar", (req, res) => {
+  console.log("req.body", req.body);
+  const calendar = database.CALENDAR;
+  var value = req.body.value
+  calendar.create({value})
+  // console.log(req.body.todo.value)
+  
+});
+
+app.get("/calendar", (req, res) => {
+  const calendar = database.CALENDAR;
+  calendar.find({}).then((todo) => res.send(todo));
+});
+
+// DELETE ITEM FROM CALENDAR
+app.delete("/:id", (req, res) => {
+  const calendar = database.CALENDAR;
+  console.log(req.params.id);
+  calendar.findByIdAndRemove(req.params.id).then(() => res.end());
+});
+
+
+/**
+ * END OF CALENDAR
+ */
+
 /**
  *
  * socket.io for the Chat //test
@@ -97,3 +133,10 @@ io.on("connection", function (socket) {
 router.get("/chat", (req, res) => {
   res.send("server is running");
 });
+
+
+
+/**
+ *
+ */
+

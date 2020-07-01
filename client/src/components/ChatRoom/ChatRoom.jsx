@@ -11,7 +11,7 @@ class Chat extends Component {
   constructor() {
     super();
     this.state = {
-      msg: "",
+      message: "",
       chat: [],
       name: "",
       role: "HIR",
@@ -20,9 +20,9 @@ class Chat extends Component {
   }
 
   componentDidMount() {
-    socket.on("chat message", ({ name, role, msg }) => {
+    socket.on("chat message", ({ name, role, message }) => {
       this.setState({
-        chat: [...this.state.chat, { name, role, msg }],
+        chat: [...this.state.chat, { name, role, message }],
       });
     });
   }
@@ -32,14 +32,14 @@ class Chat extends Component {
   };
 
   onMessageSubmit = () => {
-    const { name, role, msg } = this.state;
-    socket.emit("chat message", { name, role, msg });
-    this.setState({ msg: "" , curTime: new Date().toLocaleString()});
+    const { name, role, message } = this.state;
+    socket.emit("chat message", { name, role, message });
+    this.setState({ message: "" , curTime: new Date().toLocaleString()});
   };
 
   renderChat() {
     const chat = this.state.chat;
-    return chat.map(({ name, role, msg }, idx) => (
+    return chat.map(({ name, role, message }, idx) => (
       <div
         key={idx}
         className="divMessage"
@@ -54,7 +54,7 @@ class Chat extends Component {
         <span>{role}</span>
         <span style={{ color: "green" }}> {name} : </span>
 
-        <span style={{ color: "#999" }}>{msg}</span>
+        <span style={{ color: "#999" }}>{message}</span>
         <span style={{ float: "right" }}>at: {this.state.curTime}</span>
       </div>
     ));
@@ -100,9 +100,9 @@ class Chat extends Component {
               placeholder="Enter a message..."
               aria-label="Recipient's username"
               aria-describedby="basic-addon2"
-              name="msg"
+              name="message"
               onChange={(e) => this.onTextChange(e)}
-              value={this.state.msg}
+              value={this.state.message}
             ></input>
             <div className="input-group-append">
               <button
