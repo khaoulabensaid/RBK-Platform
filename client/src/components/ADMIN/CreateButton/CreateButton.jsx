@@ -48,6 +48,7 @@ class CreateButton extends React.Component {
                   onClick={this.openAccount.bind(this)}
                   variant="light"
                   id="createAccount"
+                  size="sm"
                 >
                   Create Account
                 </Button>
@@ -57,6 +58,7 @@ class CreateButton extends React.Component {
                   onClick={this.openCohort.bind(this)}
                   variant="light"
                   id="createCohort"
+                  size="sm"
                 >
                   Create Cohort
                 </Button>

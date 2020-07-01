@@ -4,6 +4,7 @@ import $ from "jquery";
 import CreateButton from "../CreateButton/CreateButton.jsx";
 import DeleteButton from "../DeleteButton/DeleteButton.jsx";
 import CohortsButton from "../CohortsButton/CohortsButton.jsx";
+import ChatRoomButton from "../ChatRoomButton/ChatRoomButton.jsx";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -14,22 +15,22 @@ class Navbar extends React.Component {
   }
 
   showNav() {
-    $("#container").animate({ left: "0" }, 1000);
-    $("#arrow").css("transform", "rotate(180deg)");
+    // $("#container").animate({ left: "0" }, 1000);
+    // $("#arrow").css("transform", "rotate(180deg)");
   }
   hideNav() {
-    if (this.state.hover === true) {
-      $("#container").animate({ left: "-350px" }, 1000);
-      $("#arrow").css("transform", "");
-    }
+    // if (this.state.hover === true) {
+    //   $("#container").animate({ left: "-350px" }, 1000);
+    //   $("#arrow").css("transform", "");
+    // }
   }
   fixNav() {
-    if (this.state.hover === true) {
-      this.setState({ hover: false });
-      $("#container").css("left", 0);
-    } else {
-      this.setState({ hover: true });
-    }
+    // if (this.state.hover === true) {
+    //   this.setState({ hover: false });
+    //   $("#container").css("left", 0);
+    // } else {
+    //   this.setState({ hover: true });
+    // }
   }
   render() {
     return (
@@ -55,6 +56,7 @@ class Navbar extends React.Component {
             <CreateButton />
             <DeleteButton />
             <CohortsButton />
+            <ChatRoomButton />
           </div>
         </div>
         <div id="interface"></div>
