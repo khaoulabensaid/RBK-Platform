@@ -1,6 +1,10 @@
 const express = require("express");
 const http = require("http");
+
 const cors = require('cors')
+
+
+
 const app = express();
 const router = express.Router();
 const PORT = process.env.PORT || 3000;
@@ -8,14 +12,33 @@ const database = require("../database/index.js");
 const bodyParser = require("body-parser");
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(router);
-app.use(cors())
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-var server = app.listen(PORT, () => {console.log("App is listening ON: ", PORT)})
+var server = app.listen(PORT, () => {
+  console.log("App is listening ON: ", PORT);
+});
 app.get("/chat", (req, res) => {});
-
 app.get("/", (req, res) => {});
+app.post("/DeleteCohort", (req, res) => {
+  // console.log(req.body);
+  const cohort = database.COHORT;
+  const cohortNumber = Number(req.body.input);
+  cohort.deleteOne({ cohortNumber }, (err, data) => {
+    if (err) console.log(err);
+    else console.log(data);
+  });
+});
+app.post("/DeleteUser", (req, res) => {
+  // console.log(req.body);
+  const User = database.RBK;
+  const fullName = req.body.input;
+  // console.log(fullName);
+  User.deleteOne({ fullName }, (err, data) => {
+    if (err) console.log(err);
+    else console.log(data);
+  });
+});
 app.post("/UserCreation", (req, res) => {
   const User = database.RBK;
   User.create(req.body);
@@ -41,6 +64,7 @@ app.post("/CohortCreation", (req, res) => {
 // app.listen(PORT, () => {
 //   console.log("App is listening ON: ", PORT);
 // });
+
 /**
  * 
  * START OF CALENDAR
@@ -67,6 +91,7 @@ app.delete("/:id", (req, res) => {
   calendar.findByIdAndRemove(req.params.id).then(() => res.end());
 });
 
+
 /**
  * END OF CALENDAR
  */
@@ -89,12 +114,13 @@ io.on("connection", function (socket) {
     console.log("User DisConnected");
   });
 });
-
 router.get("/chat", (req, res) => {
   res.send("server is running");
 });
 
 
+
 /**
  *
  */
+
