@@ -9,4 +9,5 @@ import UserPorfileADMIN from "./components/ADMIN/UserProfile/UserProfile.jsx";
 import CreateAccount from "./components/ADMIN/CreateAccount/CreateAccount.jsx";
 import UserProfile from "./components/User/UserProfile/UserProfile.jsx";
 import UserNavbar from "./components/User/UserNavbar/UserNavbar.jsx";
-ReactDOM.render(<UserNavbar />, document.getElementById("app"));
+import Home from "./components/Home/Home.jsx";
+ReactDOM.render(<Calendar />, document.getElementById("app"));
