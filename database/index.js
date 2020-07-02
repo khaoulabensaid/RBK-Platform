@@ -37,4 +37,13 @@ let CalendarSchema = new Schema({
 
 exports.CALENDAR = mongoose.model("CALENDAR", CalendarSchema)
 
+let pinnedBoard = new Schema({
+  fullName: String,
+  redPin: Number,
+  bluePin: Number,
+  yellowPin: Number,
+  cohort: String,  
+})
+
+exports.PINNEDBOARD = mongoose.model("PINNEDBOARD", pinnedBoard)
 
