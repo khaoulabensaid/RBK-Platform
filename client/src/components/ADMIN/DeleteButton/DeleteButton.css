@@ -1,0 +1,13 @@
+#deleteButton {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 200px;
+}
+#deleteAccountItem,
+#deleteCohortItem {
+  margin-bottom: 10px;
+  display: none;
+}
+ul {
+  list-style: none;
+}

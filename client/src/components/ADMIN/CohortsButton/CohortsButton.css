@@ -1,0 +1,12 @@
+#cohortsButton {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 200px;
+}
+.cohortsItems {
+  margin-bottom: 10px;
+  display: none;
+}
+ul {
+  list-style: none;
+}
