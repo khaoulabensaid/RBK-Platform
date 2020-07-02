@@ -24,7 +24,6 @@ class Login extends Component {
   async componentDidMount() {
     let data = await axios.get("/UserData");
     this.setState({ data: data.data });
-    console.log(this.state.data);
   }
   async checkUser() {
     let email = $("#exampleEmail").val();

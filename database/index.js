@@ -24,7 +24,6 @@ let chatRoomSchema = new Schema({
 });
 
 exports.CHATROOM = mongoose.model("CHATROOM", chatRoomSchema);
-
 let cohortSchema = new Schema({
   cohortNumber: { type: Number, unique: true },
 });
