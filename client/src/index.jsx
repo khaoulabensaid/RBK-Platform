@@ -5,7 +5,6 @@ import Calendar from "./components/ADMIN/Calendar/Calendar.jsx";
 import DeleteCohortOrUsers from "./components/ADMIN/DeleteCohortOrUsers/DeleteCohortOrUsers.jsx";
 import App from "./components/App/App.jsx";
 import ChatRoom from "./components/ChatRoom/ChatRoom.jsx";
-import UserPorfile from "./components/ADMIN/UserProfile/UserProfile.jsx";
 import PinnedBoard from "./components/PinnedBoard/PinnedBoard.jsx"
 import CreateAccount from "./components/ADMIN/CreateAccount/CreateAccount.jsx";
 import LoginTest from "./components/loginTest.jsx";
