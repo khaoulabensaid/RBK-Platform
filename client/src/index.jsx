@@ -11,5 +11,7 @@ import LoginTest from "./components/loginTest.jsx";
 import UserPorfileADMIN from "./components/ADMIN/UserProfile/UserProfile.jsx";
 import UserProfile from "./components/User/UserProfile/UserProfile.jsx";
 import UserNavbar from "./components/User/UserNavbar/UserNavbar.jsx";
+import Login from './components/Login/login.jsx'
 import Home from "./components/Home/Home.jsx";
-ReactDOM.render(<App />, document.getElementById("app"));
+import CreateCohort from "./components/ADMIN/CreateCohort/CreateCohort.jsx";
+ReactDOM.render(<Login />, document.getElementById("app"));
