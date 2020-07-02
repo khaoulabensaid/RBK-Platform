@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "../login/Login.jsx";
+import Login from "../Login/Login.jsx";
 import "./Home.css";
 class Home extends React.Component {
   constructor(props) {
