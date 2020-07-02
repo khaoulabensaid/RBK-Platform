@@ -1,23 +1,37 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Col, Form, FormGroup, Label, Input, Button, } from 'reactstrap';
-import React, { Component } from 'react';
-import './Login.css';
-import axios from 'axios'
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Container,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+} from "reactstrap";
+import React, { Component } from "react";
+import "./Login.css";
+import axios from "axios";
+import $ from "jquery";
 class Login extends Component {
-  constructor(props){
-    super(props)
-  }
- 
-  componentWillMount(){
-   fetch("http://localhost:3000/UserData")
-   .then((res) => {
-       res.json()
-   })
-   .then(data => {
-       console.log(data)
-   })  
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      acceptance: null,
+    };
   }
 
+  async componentDidMount() {
+    let data = await axios.get("/UserData");
+    this.setState({ data: data.data });
+    console.log(this.state.data);
+  }
+  async checkUser() {
+    let email = $("#exampleEmail").val();
+    let password = $("#examplePassword").val();
+    let result = await axios.post("/CheckUser", { email, password });
+    this.setState({ acceptance: result.data });
+  }
   render() {
     return (
       <Container className="app">
@@ -26,16 +40,26 @@ class Login extends Component {
           <Col>
             <FormGroup>
               <Label>Email</Label>
-              <Input type="email"  name="email" id="exampleEmail" placeholder="myemail@email.com"/>
+              <Input
+                type="email"
+                name="email"
+                id="exampleEmail"
+                placeholder="myemail@email.com"
+              />
             </FormGroup>
           </Col>
           <Col>
             <FormGroup>
               <Label for="examplePassword">Password</Label>
-              <Input type="password" name="password"  id="examplePassword" placeholder="********" />            
+              <Input
+                type="password"
+                name="password"
+                id="examplePassword"
+                placeholder="********"
+              />
             </FormGroup>
           </Col>
-          <Button>Submit</Button>
+          <Button onClick={this.checkUser.bind(this)}>Submit</Button>
         </Form>
       </Container>
     );
