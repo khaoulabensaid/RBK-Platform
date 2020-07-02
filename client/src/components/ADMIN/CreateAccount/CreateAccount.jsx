@@ -26,13 +26,11 @@ class CreateAccount extends React.Component {
     // console.log(content);
     var data1 = document.getElementById("input1").value.toLowerCase();
 
-
     var data2 = document.getElementById("input2").value;
     var data4 = document.getElementById("select1").value;
     var data5 = document.getElementById("select2").value;
     var data6 = document.getElementById("select3").value;
-    var data3 = (document.getElementById("input3").value =
-      "Cohrot" + data5 + data4);
+    var defaultPassword = "Cohrot" + data5 + data4;
     for (var i = 0; i < UserData.length; i++) {
       if (UserData[i].fullName.toLowerCase() === data1.toLowerCase()) {
         alert("insert a new fullName pls!!");
@@ -42,7 +40,6 @@ class CreateAccount extends React.Component {
     if (
       data1 === "" ||
       data2 === "" ||
-      data3 === "" ||
       data4 === "" ||
       data5 === "" ||
       data6 === ""
@@ -53,15 +50,16 @@ class CreateAccount extends React.Component {
       content.push({
         fullName: data1,
         email: data2,
-        password: data3,
+        password: defaultPassword,
         role: data4,
         cohort: data5,
         Gender: data6,
       });
+      document.getElementById("UserInfo").innerText =
+        "the User's password is " + defaultPassword;
       this.addDataToDataBase(content);
       document.getElementById("input1").value = "";
       document.getElementById("input2").value = "";
-      document.getElementById("input3").value = "";
       document.getElementById("select1").value = "";
       document.getElementById("select2").value = "";
       document.getElementById("select3").value = "";
@@ -116,7 +114,6 @@ class CreateAccount extends React.Component {
       <div className="any">
         <input id="input1" type="text" placeholder="fullName"></input>
         <input id="input2" type="text" placeholder="email"></input>
-        <input id="input3" type="text" placeholder="password"></input>
         <select id="select1">
           Role
           <option>HIR </option>
@@ -138,6 +135,7 @@ class CreateAccount extends React.Component {
         <button id="submitButton" onClick={this.submitNewUser.bind(this)}>
           Create
         </button>
+        <div id="UserInfo"></div>
       </div>
     );
   }

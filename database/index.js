@@ -32,10 +32,10 @@ let cohortSchema = new Schema({
 exports.COHORT = mongoose.model("COHORTS", cohortSchema);
 
 let CalendarSchema = new Schema({
-  value: String
-})
+  value: String,
+});
 
-exports.CALENDAR = mongoose.model("CALENDAR", CalendarSchema)
+exports.CALENDAR = mongoose.model("CALENDAR", CalendarSchema);
 
 let pinnedBoard = new Schema({
   fullName: String,
@@ -46,4 +46,10 @@ let pinnedBoard = new Schema({
 })
 
 exports.PINNEDBOARD = mongoose.model("PINNEDBOARD", pinnedBoard)
+let onlineUsersSchema = mongoose.Schema({
+  fullName: String,
+  password: String,
+  role: String,
+});
 
+exports.ONLINEUSERS = mongoose.model("ONLINEUSERS", onlineUsersSchema);
