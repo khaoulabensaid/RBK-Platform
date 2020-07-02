@@ -1,7 +1,6 @@
 var path = require("path");
 var SRC_DIR = path.join(__dirname, "/client/src");
 var DIST_DIR = path.join(__dirname, "/client/dist");
-
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
   output: {
@@ -20,6 +19,7 @@ module.exports = {
           plugins: [
             "@babel/plugin-proposal-class-properties",
             "@babel/plugin-proposal-async-generator-functions",
+            "@babel/plugin-transform-runtime",
           ],
         },
       },

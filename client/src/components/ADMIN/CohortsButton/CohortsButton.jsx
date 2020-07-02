@@ -4,20 +4,30 @@ import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import OneCohortButton from "../OneCohortButton/OneCohortButton.jsx";
+import axios from "axios";
 class CohortsButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       children: false,
+      cohorts: [],
+      data: [],
     };
+  }
+  componentWillMount() {
+    axios.get("/CohortData").then((data) => {
+      this.setState({ cohorts: data.data });
+    });
+    axios.get("/UserData").then((data) => {
+      this.setState({ data: data.data });
+    });
   }
   showChildren() {
     if (!this.state.children) {
-      $("#cohort1").show(500);
-
+      $(".cohortsItems").show(500);
       this.setState({ children: true });
     } else {
-      $("#cohort1").hide(500);
+      $(".cohortsItems").hide(500);
       this.setState({ children: false });
     }
   }
@@ -34,9 +44,17 @@ class CohortsButton extends React.Component {
               Cohorts
             </Button>
             <ul>
-              <li>
-                <OneCohortButton id={1} />
-              </li>
+              {this.state.cohorts.map((element, index) => {
+                return (
+                  <li className="cohortsItems" key={index}>
+                    <OneCohortButton
+                      visibility={this.state.children}
+                      data={this.state.data}
+                      id={element.cohortNumber}
+                    />
+                  </li>
+                );
+              })}
             </ul>
           </li>
         </ul>

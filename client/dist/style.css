@@ -5,3 +5,16 @@ html {
   width: 100%;
   overflow: hidden;
 }
+body {
+  background-image: url("./bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#interface {
+  margin: auto;
+  position: relative;
+  width: 80%;
+  top: 20%;
+  left: 10%;
+  height: 100vh;
+}

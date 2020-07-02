@@ -4,6 +4,7 @@ import $ from "jquery";
 import CreateButton from "../CreateButton/CreateButton.jsx";
 import DeleteButton from "../DeleteButton/DeleteButton.jsx";
 import CohortsButton from "../CohortsButton/CohortsButton.jsx";
+import ChatRoomButton from "../ChatRoomButton/ChatRoomButton.jsx";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -33,28 +34,32 @@ class Navbar extends React.Component {
   }
   render() {
     return (
-      <div
-        id="container"
-        onMouseEnter={this.showNav.bind(this)}
-        onMouseLeave={this.hideNav.bind(this)}
-      >
-        <div id="arrowbox">
+      <div>
+        <div
+          id="container"
+          onMouseEnter={this.showNav.bind(this)}
+          onMouseLeave={this.hideNav.bind(this)}
+        >
+          <div id="arrowbox">
+            <center>
+              <img
+                onClick={this.fixNav.bind(this)}
+                id="arrow"
+                src="./arr.png"
+              ></img>
+            </center>
+          </div>
           <center>
-            <img
-              onClick={this.fixNav.bind(this)}
-              id="arrow"
-              src="./arr.png"
-            ></img>
+            <img src="./rbk2.png" id="rbkLogo" />
           </center>
+          <div id="buttonsBox">
+            <CreateButton />
+            <DeleteButton />
+            <CohortsButton />
+            <ChatRoomButton />
+          </div>
         </div>
-        <center>
-          <img src="./rbk2.png" id="rbkLogo" />
-        </center>
-        <div id="buttonsBox">
-          <CreateButton />
-          <DeleteButton />
-          <CohortsButton />
-        </div>
+        <div id="interface"></div>
       </div>
     );
   }
