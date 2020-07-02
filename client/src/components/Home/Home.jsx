@@ -92,56 +92,61 @@ class Home extends React.Component {
               </div>
             </section>
             <section className="col-lg-6">
-              <h3 className="tm-title-gray mb-4">New Focused Strategies</h3>
+              <h3 className="tm-title-gray mb-4">
+                THE ALL IN ONE SOLUTION FOR A BETTER FUTURE !
+              </h3>
               <hr className="mb-5 tm-hr" />
               <div className="tm-strategy-box mb-5">
                 <img
-                  src="img/strategy-1.jpg"
+                  id="datastructures"
+                  src="data.png"
                   alt="Image"
                   className="img-fluid tm-strategy-img"
                 />
                 <div>
-                  <h4 className="tm-text-primary">
-                    Maecenas molestie varius ipsum
-                  </h4>
+                  <h4 className="tm-text-primary">Data Structures</h4>
                   <p className="tm-strategy-text">
-                    Quisque consectetur ipsum justo, sed posuere massa pretium
-                    nec. In scelerisque, odio et maximus feugiat, nisl libero
-                    porta turpis, quis imperdiet odio.
+                    Learn and understand the data structures
                   </p>
                 </div>
               </div>
               <div className="tm-strategy-box mb-5">
                 <img
-                  src="img/strategy-2.jpg"
+                  id="frontend"
+                  src="front.png"
                   alt="Image"
                   className="img-fluid tm-strategy-img"
                 />
                 <div>
-                  <h4 className="tm-text-primary">
-                    Etiam consequat placerat convallis
-                  </h4>
+                  <h4 className="tm-text-primary">Front End</h4>
                   <p className="tm-strategy-text">
-                    Fusce non diam vel diam egestas accumsan quis aliquam metus.
-                    Nulla porta ullamcorper mauris maximus feugiat. Donec ac
-                    tincidunt dui.
+                    HTML, CSS, JQuery, Ajax Request, API’s…
                   </p>
                 </div>
               </div>
               <div className="tm-strategy-box mb-5">
                 <img
-                  src="img/strategy-3.jpg"
+                  id="frontendfram"
+                  src="fram.png"
                   alt="Image"
                   className="img-fluid tm-strategy-img"
                 />
                 <div>
-                  <h4 className="tm-text-primary">
-                    Aenean varius velit eu ligula
-                  </h4>
+                  <h4 className="tm-text-primary">Front end frameworks</h4>
+                  <p className="tm-strategy-text">React, Angular, BackBone…</p>
+                </div>
+              </div>
+              <div className="tm-strategy-box mb-5">
+                <img
+                  id="backend"
+                  src="back.png"
+                  alt="Image"
+                  className="img-fluid tm-strategy-img"
+                />
+                <div>
+                  <h4 className="tm-text-primary">Back End</h4>
                   <p className="tm-strategy-text">
-                    Suspendisse gravida, ipsum a gravida euismod, metus enim
-                    hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas
-                    tempus risus ipsum.
+                    Servers and Node, Databases, Authentication, Deployment…
                   </p>
                 </div>
               </div>
@@ -151,44 +156,74 @@ class Home extends React.Component {
             <div className="col-lg-4 col-md-6">
               <div className="tm-bg-gray tm-box">
                 <div className="text-center mb-3">
-                  <i className="fas fa-cloud-sun fa-5x p-5"></i>
+                  {/* <i className="fas fa-cloud-sun fa-5x p-5"></i> */}
+                  <img
+                    id="hugh"
+                    src="https://k4q5g9i9.rocketcdn.me/wp-content/uploads/2019/11/Bosely-Hugh-e1470759180540.jpg"
+                  ></img>
                 </div>
-                <h4 className="tm-text-primary tm-h3 mb-5">
-                  Suspendisse at nunc leo
-                </h4>
+                <h4 className="tm-text-primary tm-h3 mb-5">Job Placement</h4>
                 <p>
-                  Phasellus malesuada aliquam arcu, et ultricies metus
-                  scelerisque id. Curabitur finibus ornare blandit. Donec a
-                  luctus nulla. Vivamus ac felis sapien.
+                  During your Immersive phase, you will be taught how to develop
+                  your online presence and sharpen your interview skills with
+                  our experienced coaches. As your graduation nears, RBK will
+                  organize a career fair whereby companies will gather to
+                  introduce themselves to you and explain their technology and
+                  culture so you can have an idea of where you’d like to apply.
+                  <br /> Hugh Bosley
+                  <br /> Founder, ReBootKamp
                 </p>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="tm-bg-gray tm-box">
                 <div className="text-center mb-3">
-                  <i className="fas fa-spa fa-5x p-5"></i>
+                  {/* <i className="fas fa-spa fa-5x p-5"></i> */}
+                  <img
+                    id="daragi"
+                    src="https://k4q5g9i9.rocketcdn.me/wp-content/uploads/2019/11/Lotfi-Darragi-ReBootKamp-RBK.jpg"
+                  ></img>
                 </div>
                 <h4 className="tm-text-primary tm-h3 mb-5">
-                  Etiam viverra elit vel efficitur
+                  The world’s Most Advanced Coding Bootcamp, Now@Tunis
                 </h4>
                 <p>
-                  Nunc ultrices imperdiet orci, a ultrices orci luctus vel.
-                  Etiam consequat placerat convallis. Donec consequat
-                  consectetur est, eget pretium nisl.
+                  By joining us, you have direct access to all the resources our
+                  founding partners, Hack Reactor and Galvanize, use to train
+                  software engineers in the USA, you also have exactly the same
+                  diploma as an engineer trained in San Fransisco or Austin.
+                  This allows you to be employable immediately , all over the
+                  world, at the end of your course at RBK
+                  <br />
+                  Lotfi DARRAGI
+                  <br />
+                  CEO , ReBootKamp Tunisia
                 </p>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
-              <img
-                src="img/biz-oriented-2.jpg"
-                alt="Image"
-                className="img-fluid"
-              />
-              <div className="tm-box tm-box-s">
-                <p className="tm-mb-5">
-                  Suspendisse gravida, ipsum a gravida euismod, metus enim
-                  hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas
-                  tempus risus ipsum.
+              <div className="tm-bg-gray tm-box">
+                <div className="text-center mb-3">
+                  {/* <i className="fas fa-spa fa-5x p-5"></i> */}
+                  <img
+                    id="curriculum"
+                    src="https://k4q5g9i9.rocketcdn.me/wp-content/uploads/2020/05/laptop-graph-left3-1.png.webp"
+                  ></img>
+                </div>
+                <h4 className="tm-text-primary tm-h3 mb-5">Curriculum</h4>
+                <p>
+                  By Hack Reactor @ Galvanize
+                  <br />
+                  The main course of the Program is structured around the world
+                  famous Hack Reactor curriculum which is the top coding camp in
+                  the United States.at RBK, we will also work on your
+                  communication, teamwork, leadership, critical thinking and
+                  creativity skills. Just as importantly, we will enhance your
+                  stress levels by pushing you to your maximum limit. A Sample
+                  of the Principles You’ll Learn : Data structures, Algorithms,
+                  jQuery, HTML/CSS, Ajax, Backbone, APIs, React, NodeJS,
+                  Databases, Deployment, MEAN stack development, Angular and
+                  more. Much more.
                 </p>
               </div>
             </div>
@@ -205,13 +240,11 @@ class Home extends React.Component {
             <div className="row">
               <div className="col-12">
                 <div className="tm-overlay tm-bg-white">
-                  <h4 className="tm-text-primary mb-5">
-                    Parallax Background Section
-                  </h4>
+                  <h4 className="tm-text-primary mb-5">Contact Us:</h4>
                   <p className="mb-5">
-                    Suspendisse gravida, ipsum a gravida euismod, metus enim
-                    hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas
-                    tempus risus ipsum.
+                    If you want to ask about anything, to get more details about
+                    the cursus, inscription and everything, you can easily
+                    contact us on our e-mail.
                   </p>
                   <a href="contact.html" className="btn btn-primary">
                     Contact Us
@@ -221,37 +254,42 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        {/* Part3 */}
 
+        {/* Part3 */}
         <footer className="container-fluid">
           <div className="row">
             <p className="col-lg-9 col-md-8 mb-5 mb-md-0">
               Copyright &copy; 2020
-              <span className="tm-text-primary">Business Oriented</span> -
-              designed by
+              <span className="tm-text-primary">RBK Platform</span> - designed
+              by
               <a
                 rel="nofollow"
                 target="_parent"
                 href="https://templatemo.com"
                 className="tm-link-primary"
               >
-                TemplateMo
+                Warriors Team
               </a>
             </p>
             <div className="col-lg-3 col-md-4 text-right">
               <a
                 rel="nofollow"
                 target="_blank"
-                href="https://fb.com/templatemo"
+                href="https://www.facebook.com/RBKTunisia/"
                 className="tm-social-link"
               >
                 <i className="fab fa-facebook fa-2x tm-social-icon"></i>
               </a>
-              <a href="https://twitter.com" className="tm-social-link">
+              <a
+                href="https://twitter.com/ReBootKAMP"
+                className="tm-social-link"
+              >
                 <i className="fab fa-twitter fa-2x tm-social-icon"></i>
               </a>
-              <a href="https://linkedin.com" className="tm-social-link">
+              {/* <a href="https://linkedin.com" className="tm-social-link">
                 <i className="fab fa-linkedin fa-2x tm-social-icon"></i>
-              </a>
+              </a> */}
             </div>
           </div>
         </footer>
