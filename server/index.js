@@ -1,4 +1,3 @@
-require("dotenv/config");
 const express = require("express");
 const http = require("http");
 // console.log(process.env.ACCESS_TOKEN_SECRET);
@@ -74,6 +73,22 @@ app.post("/logOutTest", (req, res) => {
   onlineUsres.deleteOne({ fullName }, (err, data) => {
     if (err) console.log(err);
     else console.log(data);
+  });
+});
+app.post("/CheckUser", (req, res) => {
+  const User = database.RBK;
+  User.find({ email: req.body.email }, (err, docs) => {
+    if (docs.length > 0) {
+      if (docs[0].password === req.body.password) {
+        res.send(true);
+      } else {
+        res.send(false);
+      }
+    } else {
+      res.send(false);
+    }
+  });
+});
 app.post("/updateUser", (req, res) => {
   const User = database.RBK;
   let oldFullName = req.body.fullName;
